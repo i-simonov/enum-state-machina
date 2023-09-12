@@ -1,5 +1,6 @@
 package com.example.enumstatemachina;
 
+
 public enum StatusEnum {
     RED
             {

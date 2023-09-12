@@ -1,5 +1,6 @@
 package com.example.enumstatemachina;
 
+
 import org.springframework.stereotype.Component;
 
 @Component
