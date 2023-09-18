@@ -1,13 +1,13 @@
-    package com.example.enumstatemachina;
+    package com.example.enumstatemachina.service;
 
     import org.springframework.stereotype.Component;
 
     @Component
-    public class StatusMachina {
+    public class StateMachine {
 
         private StatusEnum status;
 
-        public StatusMachina() {
+        public StateMachine() {
             this.status = StatusEnum.RED;
         }
 
@@ -16,7 +16,7 @@
         }
 
         public StatusEnum nextStatus(){
-            this.status = this.status.nextStatus();
+            this.status = this.status.getNextStatus();
             return this.status;
         }
     }

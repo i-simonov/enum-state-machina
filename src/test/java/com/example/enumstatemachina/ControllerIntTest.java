@@ -1,5 +1,7 @@
     package com.example.enumstatemachina;
 
+    import com.example.enumstatemachina.controller.Controller;
+    import com.example.enumstatemachina.service.StateMachine;
     import org.junit.jupiter.api.Test;
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -17,30 +19,30 @@
         MockMvc mockMvc;
 
         @MockBean
-        StatusMachina statusMachinaMock;
+        StateMachine stateMachineMock;
 
-        StatusMachina statusMachina = new StatusMachina();
+        StateMachine stateMachine = new StateMachine();
 
         @Test
         public void getStatusTest() throws Exception {
 
 
-            when(statusMachinaMock.getStatus()).thenReturn(statusMachina.getStatus());
+            when(stateMachineMock.getStatus()).thenReturn(stateMachine.getStatus());
 
             mockMvc.perform(get("http://localhost:8080/api/v1/state-machina/getStatus"))
                     .andExpect(status().isOk())
-                    .andExpect(content().string(statusMachina.getStatus().toString()));
+                    .andExpect(content().string(stateMachine.getStatus().toString()));
 
         }
         @Test
         public void nextStatusTest() throws Exception {
 
 
-            when(statusMachinaMock.nextStatus()).thenReturn(statusMachina.nextStatus());
+            when(stateMachineMock.nextStatus()).thenReturn(stateMachine.nextStatus());
 
             mockMvc.perform(get("http://localhost:8080/api/v1/state-machina/nextStatus"))
                     .andExpect(status().isOk())
-                    .andExpect(content().string(statusMachina.getStatus().toString()));
+                    .andExpect(content().string(stateMachine.getStatus().toString()));
 
         }
     }
